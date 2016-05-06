@@ -1,0 +1,61 @@
+
+<div class="content">
+    <div class="container">
+      <div class="row">
+      
+          <section class="content-inner">
+            <div class="card-wrap">
+              <div class="card">
+                <div class="card-main">
+                  <h1 class="card-heading "style="color: white;">List of employees</h1>
+                    <div class="card-inner">
+                      
+                        
+                      											<table class="table">
+												<thead>
+													<tr>
+														<th>Username</th>
+														<th>Email</th>
+														<th>Status</th>
+														<th>amount taken</th>
+														<th>Action</th>
+													</tr>
+												</thead>
+													  
+												<tbody>
+													<% @messages.each do |message| %>
+													<tr>
+													<td>
+														<%= message.sender_id %>
+													</td>
+													<td>
+														<%= message.leave_start_date %>
+													</td>
+													<td>
+														<%= message.leave_end_date %>
+													</td>
+													<td>
+														<%= message.amount_taken %>
+													</td>
+													<td>
+														 <%= link_to 'approve', message_path(message), class: 'btn btn-green', method: :patch %>
+														 <%= link_to 'reject ', message_path(message), class: 'btn btn-yellow', method: :update %>
+														 
+													</td>
+													</tr>
+												<% end %>
+												</tbody>
+											</table>
+                          
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

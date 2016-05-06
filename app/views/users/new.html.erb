@@ -1,0 +1,75 @@
+<div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-lg-push-4 col-sm-6 col-sm-push-3">
+          <section class="content-inner">
+            <div class="card-wrap">
+              <div class="card">
+                <div class="card-main">
+                  <div class="card-header">
+                    <div class="card-inner">
+                      <h1 class="card-heading "style="color: white;">Create account for Employee</h1>
+                    </div>
+                  </div>
+                  <div class="card-inner">
+                    <p class="text-center">
+                    </p>
+                    <%= form_for @user do |a| %>
+                      <div class="form-group-green form-group-label">
+                        <div class="row">
+                          <div class="col-md-10 col-md-push-1">
+                            <label class="floating-label" for="login-username">Username for Employee</label>
+                            <%= a.text_field :username,class: 'form-control', id: 'login-username', placeholder: "Username", style: 'color: white;' %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group-green form-group-label">
+                        <div class="row">
+                          <div class="col-md-10 col-md-push-1">
+                            <label class="floating-label" for="login-password">Password for employee</label>
+                            <%= a.password_field :password,id: 'login-password', class: 'form-control', placeholder: "Password",style: 'color: white' %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group-green form-group-label">
+                        <div class="row">
+                          <div class="col-md-10 col-md-push-1">
+                            <label class="floating-label" for="password-confirm">Password confirmation</label>
+                            <%= a.password_field :password_confirmation,id: 'password-confirm', class: 'form-control', placeholder: "Password-confirm",style: 'color: white' %>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="form-group-green form-group-label">
+                        <div class="row">
+                          <div class="col-md-10 col-md-push-1">
+                            <label class="floating-label" for="employee-email">Employee's email
+                            </label>
+                            <%= a.text_field :email, class: 'form-control', id: 'employee-email', placeholder: "Email",style: 'color: white;' %>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="row">
+
+                          <div class="col-md-10 col-md-push-1">
+                            <%= a.submit "Create Employee's Account",class:'btn btn-block btn-green' %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+              
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
