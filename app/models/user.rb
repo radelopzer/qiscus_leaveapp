@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-	has_many :message
+	has_many :messages
+	# has_and_belongs_to_many :messages
 	has_secure_password
 	before_create :set_auth_token
 

@@ -22,6 +22,10 @@ class UsersController < ApplicationController
     redirect_to users_url, notice: 'Pengguna berhasil dihapus!'
 	end
 
+	def profile_settings
+
+	end
+
 	private
 
 	def user_params

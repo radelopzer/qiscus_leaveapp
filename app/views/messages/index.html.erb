@@ -7,55 +7,81 @@
             <div class="card-wrap">
               <div class="card">
                 <div class="card-main">
-                  <h1 class="card-heading "style="color: white;">List of employees</h1>
+                  <h1 class="card-heading "style="color: white;">List of employees leave messages</h1>
                     <div class="card-inner">
                       
                         
-                      											<table class="table">
-												<thead>
-													<tr>
-														<th>Username</th>
-														<th>Email</th>
-														<th>Status</th>
-														<th>amount taken</th>
-														<th>Action</th>
-													</tr>
-												</thead>
-													  
-												<tbody>
-													<% @messages.each do |message| %>
-													<tr>
-													<td>
-														<%= message.sender_id %>
-													</td>
-													<td>
-														<%= message.leave_start_date %>
-													</td>
-													<td>
-														<%= message.leave_end_date %>
-													</td>
-													<td>
-														<%= message.amount_taken %>
-													</td>
-													<td>
-														 <%= link_to 'approve', message_path(message), class: 'btn btn-green', method: :patch %>
-														 <%= link_to 'reject ', message_path(message), class: 'btn btn-yellow', method: :update %>
-														 
-													</td>
-													</tr>
-												<% end %>
-												</tbody>
-											</table>
+								<table class="table">
+			<thead>
+				<tr>
+					<th>Sender</th>
+					<th>Status</th>
+					<th>Leave start at</th>
+					<th>Leave end at</th>
+					<th>Leave </th>
+					<th>Action</th>
+				</tr>
+			</thead>
+				  
+			<tbody>
+				<% @messages.each do |message| %>
+				<tr>
+				<td>
+					<%= message.username %>
+				</td>
+
+				<td>
+					<%= message.approval_status %>
+				</td>
+				<td>
+					<%= message.leave_end_date %>
+				</td>
+				<td>
+					<%= message.amount_taken %> days
+				</td>
+				
+				<td>
+				<a href="#" class="btn btn-green" data-toggle="modal" data-target="#<%= message.id %>">Approve</a>
+
+						<div aria-hidden="true" class="modal modal-va-middle fade" id="<%= message.id %>" role="dialog" tabindex="-1">
+						<div class="modal-dialog modal-xs">
+						<div class="modal-content">
+						<div class="modal-inner">
+						<p class="content">Approve this leave ?</p>
+						</div>
+						<div class="modal-footer">
+						<p class="text-right">
+						<%= form_for Message.find(message.id), :method => :PUT do |f| %>
+						<%= f.hidden_field :approval_status, value: 1 %>
+						<%= f.submit "Approve", class: 'btn btn-green' %>
+						<div class="pull-right">
+						<a class="btn btn-yellow" data-dismiss="modal">Cancel
+						</a>
+						</div>
+						<% end %>
+						</p>
+						
+						
+						
+						
+						
+						
+						</div>
+						</div>
+						</div>
+						</div>
+		
+					 
+				</td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
                           
-                        </div>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
+                    </div>
             </div>
         </div>
       </div>
     </div>
   </div>
+<!-------------------------------------------------------------------->
