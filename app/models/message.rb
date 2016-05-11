@@ -19,4 +19,8 @@ class Message < ActiveRecord::Base
   def approve
   	update!(approval_status: 'APPROVED')
   end
+
+  def reject
+  	update!(approval_status: 'REJECTED')
+  end
 end

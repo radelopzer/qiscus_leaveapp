@@ -18,7 +18,7 @@
 					<th>Status</th>
 					<th>Leave start at</th>
 					<th>Leave end at</th>
-					<th>Leave </th>
+					<th>Leave taken</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -34,6 +34,9 @@
 					<%= message.approval_status %>
 				</td>
 				<td>
+					<%= message.leave_start_date %>
+				</td>
+				<td>
 					<%= message.leave_end_date %>
 				</td>
 				<td>
@@ -41,18 +44,20 @@
 				</td>
 				
 				<td>
-				<a href="#" class="btn btn-green" data-toggle="modal" data-target="#<%= message.id %>">Approve</a>
 
-						<div aria-hidden="true" class="modal modal-va-middle fade" id="<%= message.id %>" role="dialog" tabindex="-1">
+				<a href="#" class="btn btn-green" data-toggle="modal" data-target="#approve<%= message.id %>">Approve</a>
+				<a href="#" class="btn btn-yellow" data-toggle="modal" data-target="#reject<%= message.id %>">Reject</a>
+
+						<div aria-hidden="true" class="modal modal-va-middle fade" id="approve<%= message.id %>" role="dialog" tabindex="-1">
 						<div class="modal-dialog modal-xs">
 						<div class="modal-content">
 						<div class="modal-inner">
-						<p class="content">Approve this leave ?</p>
+						<p class="content">Approve this leave?</p>
 						</div>
 						<div class="modal-footer">
 						<p class="text-right">
-						<%= form_for Message.find(message.id), :method => :PUT do |f| %>
-						<%= f.hidden_field :approval_status, value: 1 %>
+						<%= form_for Message.find(message.id), :method => :approve do |f| %>
+						<%= f.hidden_field :approval_status, value: "approved" %>
 						<%= f.submit "Approve", class: 'btn btn-green' %>
 						<div class="pull-right">
 						<a class="btn btn-yellow" data-dismiss="modal">Cancel
@@ -60,6 +65,28 @@
 						</div>
 						<% end %>
 						</p>
+						</div>
+						</div>
+						</div>
+						</div>
+						<div aria-hidden="true" class="modal modal-va-middle fade" id="reject<%= message.id %>" role="dialog" tabindex="-1">
+						<div class="modal-dialog modal-xs">
+						<div class="modal-content">
+						<div class="modal-inner">
+						<p class="content">Reject this leave ?</p>
+						</div>
+						<div class="modal-footer">
+						<p class="text-right">
+						<%= form_for Message.find(message.id), :method => :PUT do |f| %>
+						<%= f.hidden_field :approval_status, value: "rejected" %>
+						<%= f.submit "Reject", class: 'btn btn-yellow' %>
+						<div class="pull-right">
+						<a class="btn btn-green" data-dismiss="modal">Cancel
+						</a>
+						</div>
+						<% end %>
+						</p>
+
 						
 						
 						

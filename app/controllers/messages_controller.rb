@@ -13,6 +13,9 @@ class MessagesController < ApplicationController
 		def new
 		@message =Message.new
 		end
+		def edit
+
+		end
 
 		def create
 		@message = Message.new(message_params)
@@ -37,7 +40,26 @@ class MessagesController < ApplicationController
       	redirect_to messages_url, alert: 'fail to approve'
 	  	end
   		end
-	
+
+  		def approve
+	    if current_user.admin?
+
+	    @message = Message.find(params[:id])
+	    @message.approve
+	    @message.user_id
+	    @user = User.find(@message.user_id)
+	    @user.update(amount: @user.amount-@message.amount_leave)  
+	    render json: {
+	      success: true,
+	      message: "leave approved",
+	    }
+	    else
+	      render json: {
+	        success: false,
+	        message:"access denied"
+	      }
+	  	end
+		end
 		private
 
 		def message_params

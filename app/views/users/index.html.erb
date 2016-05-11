@@ -38,9 +38,33 @@
 														<%= user.amount %>
 													</td>
 													<td>
-														 <%= link_to 'Delete', user_path(user), class: 'btn btn-red', method: :delete %>
-													</td>
-													</tr>
+													<a href="#" class="btn btn-red" data-toggle="modal" data-target="#<%= user.id %>">Delete account</a>
+													<div aria-hidden="true" class="modal modal-va-middle fade" id="<%= user.id %>" role="dialog" tabindex="-1">
+													<div class="modal-dialog modal-xs">
+													<div class="modal-content">
+													<div class="modal-inner">
+													<p class="content">Delete this account ?</p>
+													<%= link_to 'Delete', user_path(user), class: 'btn btn-red', method: :delete %>
+
+													<div class="pull-right">
+													<a class="btn btn-yellow" data-dismiss="modal">Cancel
+													</a>
+													</div>
+													
+													</p>
+						
+						
+						
+						
+						
+						
+						</div>
+						</div>
+						</div>
+						</div>
+		
+					 
+				
 												<% end %>
 												</tbody>
 											</table>
