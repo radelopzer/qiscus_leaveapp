@@ -17,10 +17,10 @@ class Message < ActiveRecord::Base
   end
 
   def approve
-  	update!(approval_status: 'APPROVED')
+  	update!(approval_status: 'approved')
   end
 
   def reject
-  	update!(approval_status: 'REJECTED')
+  	update!(approval_status: 'rejected')
   end
 end

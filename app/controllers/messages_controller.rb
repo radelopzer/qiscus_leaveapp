@@ -49,16 +49,21 @@ class MessagesController < ApplicationController
 	    @message.user_id
 	    @user = User.find(@message.user_id)
 	    @user.update(amount: @user.amount-@message.amount_taken)  
-	    render json: {
-	      success: true,
-	      message: "leave approved",
-	    }
+	    redirect_to messages_url,notice: 'approved'
+	    
 	    else
-	      render json: {
-	        success: false,
-	        message:"access denied"
-	      }
+	      redirect_to messages_url,alert: 'fail to approve'
 	  	end
+		end
+		def reject
+		if current_user
+		@message= Message.find(params[:id])
+		@message.reject
+		redirect_to messages_url,notice: 'rejected'
+
+		else
+			redirect_to messages_url,alert: 'fail to reject'
+		end
 		end
 		private
 

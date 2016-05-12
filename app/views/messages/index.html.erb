@@ -78,7 +78,8 @@
 						</div>
 						<div class="modal-footer">
 						<p class="text-right">
-						<%= form_for Message.find(message.id), :method => :PUT do |f| %>
+						<%= form_for message,:url => {:action => "reject", :id => message, 
+							:controller => "messages" } do |f| %>
 						<%= f.hidden_field :approval_status, value: "rejected" %>
 						<%= f.submit "Reject", class: 'btn btn-yellow' %>
 						<div class="pull-right">
