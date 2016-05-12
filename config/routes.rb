@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   get 'resubmit_message'      =>'message#edit'
   get '/dashboard'      =>'static_pages#index'
   get '/delete'         =>'messages#index'
-  patch approve, to: messages#approve
+  put '/update'        =>'messages#update'
   # match '/approve/:id'  => 'messages#approve', via: [:put, :patch]
+ match "/approve" => "messages#approve", :via => :post, :as => :approve
 
   # These routes will be for signup. The first renders a form in the browse, the second will 
   # receive the form and create a user in our database using the data given to us by the user.
@@ -30,8 +31,22 @@ Rails.application.routes.draw do
 
   resources :sessions
   resources :users
-  resources :messages do
-    patch 'approve'
-  end
+  resources :messages
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 end
