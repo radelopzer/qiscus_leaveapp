@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
 
-
 	layout 'dashboard'
 		def index
 			@message = Message.joins(:user) 
@@ -42,13 +41,14 @@ class MessagesController < ApplicationController
   		end
 
   		def approve
-	    if current_user.admin?
+	    if current_user
+	    # if current_user.admin?
 
 	    @message = Message.find(params[:id])
 	    @message.approve
 	    @message.user_id
 	    @user = User.find(@message.user_id)
-	    @user.update(amount: @user.amount-@message.amount_leave)  
+	    @user.update(amount: @user.amount-@message.amount_taken)  
 	    render json: {
 	      success: true,
 	      message: "leave approved",

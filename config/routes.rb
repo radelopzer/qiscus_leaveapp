@@ -16,9 +16,11 @@ Rails.application.routes.draw do
   get 'resubmit_message'      =>'message#edit'
   get '/dashboard'      =>'static_pages#index'
   get '/delete'         =>'messages#index'
-  put '/update'        =>'messages#update'
+  patch '/:id/approve'        =>'messages#approve', as: :approve
+
+  #put 'messages/approve/:id'
   # match '/approve/:id'  => 'messages#approve', via: [:put, :patch]
- match "/approve" => "messages#approve", :via => :post, :as => :approve
+  # match "/approve/messages:id" => "messages#approve", :via => :post, :as => :approve
 
   # These routes will be for signup. The first renders a form in the browse, the second will 
   # receive the form and create a user in our database using the data given to us by the user.

@@ -56,7 +56,8 @@
 						</div>
 						<div class="modal-footer">
 						<p class="text-right">
-						<%= form_for Message.find(message.id), :method => :approve do |f| %>
+						<%#= form_for Message.find(message.id),method: :approve_path do |f| %>
+						<%= form_for message, :url => {:action => "approve", :id => message, :controller => "messages"} do |f| %>
 						<%= f.hidden_field :approval_status, value: "approved" %>
 						<%= f.submit "Approve", class: 'btn btn-green' %>
 						<div class="pull-right">
