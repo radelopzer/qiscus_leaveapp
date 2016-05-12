@@ -11,5 +11,12 @@ jadi saya harus menjelaskan di controller agar pemanggilan id tidak bentrok karn
 @messages = Message.select("messages.id, messages.approval_status, messages.leave_start_date, messages.leave_end_date, messages.amount_taken, users.id as u_id,
     				users.username").joins(:user)
 
+custom routes untuk di gunakan di html.erb kita memparsing dengan cara 
+
+
+	    <%= form_for namaclass, :url => {:action => "namaaction", :id => namamodel, :controller => "namacontroller"} do |f| %>
+	    
+
+
 
 
