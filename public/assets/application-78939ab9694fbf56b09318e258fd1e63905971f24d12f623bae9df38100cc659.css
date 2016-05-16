@@ -26,7 +26,7 @@ audio {
 
 body {
   background-color: #212C16;
-  background:  url("<%= asset_path('lightweb.png') %>");
+  background:  url("/assets/lightweb-ebfd93850a4a1b94f89f407e0a36a8b1ce58f93a91bf495322af63f14b103683.png");
 
   color: #212121;
   font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1536,8 +1536,8 @@ th {
   font-family: "FontAwesome";
   font-style: normal;
   font-weight: normal;
-  src: url("<%= asset_path('fontawesome-webfont.eot?v=4.3.0') %>");
-  src: url("<%= asset_path('fontawesome-webfont.eot?#iefix&v=4.3.0') %>") format("embedded-opentype"), url("<%= asset_path('fontawesome-webfont.woff2?v=4.3.0') %>") format("woff2"), url("<%= asset_path('fontawesome-webfont.woff?v=4.3.0') %>") format("woff"), url("<%= asset_path('fontawesome-webfont.ttf?v=4.3.0') %>") format("truetype"), url("<%= asset_path('fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') %>") format("svg");
+  src: url("/assets/fontawesome-webfont-cbb644d0ee730ea57dd5fbae35ef5ba4a41d57a254a6b1215de5c9ff8a321c2d.eot?v=4.3.0");
+  src: url("/assets/fontawesome-webfont-cbb644d0ee730ea57dd5fbae35ef5ba4a41d57a254a6b1215de5c9ff8a321c2d.eot?#iefix&v=4.3.0") format("embedded-opentype"), url("/assets/fontawesome-webfont-aadc3580d2b64ff5a7e6f1425587db4e8b033efcbf8f5c332ca52a5ed580c87c.woff2?v=4.3.0") format("woff2"), url("/assets/fontawesome-webfont-e3870de89716b72cb61a4bba0e17c75783b361cdaba35ea96961c3070bd8ca18.woff?v=4.3.0") format("woff"), url("/assets/fontawesome-webfont-9e540a087924a6e64790149d735cac022640e4fa6bff6bd65f5e9f41529bf0b3.ttf?v=4.3.0") format("truetype"), url("/assets/fontawesome-webfont-bfdef833219a6edffd9c3cbc28db72739d22bb4d20cc2e2f8d56a7a4d408a206.svg?v=4.3.0#fontawesomeregular") format("svg");
 }
 .fa {
   display: inline-block;
@@ -3869,8 +3869,8 @@ th {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url("<%= asset_path('MaterialIcons-Regular.eot?v=2.0.0') %>");
-  src: local("Material Icons"), local("MaterialIcons-Regular"), url("<%= asset_path('MaterialIcons-Regular.woff2?v=2.0.0') %>") format("woff2"), url("<%= asset_path('MaterialIcons-Regular.woff?v=2.0.0') %>") format("woff"), url("<%= asset_path('MaterialIcons-Regular.ttf?v=2.0.0') %>") format("truetype");
+  src: url("/assets/MaterialIcons-Regular-7508888b596427dcdf9b38fbe46cc0e7a7e8fdffbc58784fb7e74c2eb8a63ccb.eot?v=2.0.0");
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url("/assets/MaterialIcons-Regular-732ede8a2e23292a923db629fb4370dfd5dda64976d49f98d9f9ac548d9c3f4c.woff2?v=2.0.0") format("woff2"), url("/assets/MaterialIcons-Regular-e09b6d7fd291277fb382d79b825b79ff97ddaba252ea933efd6dafb51029df65.woff?v=2.0.0") format("woff"), url("/assets/MaterialIcons-Regular-676a4c011c5d0c76437dd6d0c1213c80b28052f635ad2bb1181b2f47afbf5597.ttf?v=2.0.0") format("truetype");
 }
 .icon, .breadcrumb > li + li:before {
   font-family: 'Material Icons';
@@ -9291,3 +9291,84 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
     right: 240px;
   }
 }
+.snackbar {
+  background-color: #00CC44;
+  color: #FFFFFF;
+  font-size: 14px;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  height: 0;
+  -moz-transition: -moz-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, padding 0s linear 0.2s, height 0s linear 0.2s;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, padding 0s linear 0.2s, height 0s linear 0.2s;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, padding 0s linear 0.2s, height 0s linear 0.2s;
+  -moz-transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+  transform: translateY(200%);
+}
+.snackbar.snackbar-opened {
+  padding: 14px 15px;
+  margin-bottom: 20px;
+  height: auto;
+  -moz-transition: -moz-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, height 0s linear 0.2s;
+  -moz-transform: none;
+  -webkit-transform: none;
+  transform: none;
+}
+.snackbar.toast {
+  border-radius: 200px;
+}
+
+#snackbar-container {
+  position: fixed;
+  left: 20px;
+  bottom: 0;
+  z-index: 99999;
+}
+.snackbar {
+  overflow: hidden;
+  clear: both;
+  min-width: 288px;
+  max-width: 568px;
+  cursor: pointer;
+  opacity: 0;
+}
+.snackbar.snackbar-opened {
+  height: auto;
+  opacity: 1;
+}
+@media (max-width: 767px) {
+  #snackbar-container {
+    left: 0px !important;
+    right: 0px;
+    width: 100%;
+  }
+  #snackbar-container .snackbar {
+    min-width: 100%;
+  }
+  #snackbar-container [class="snackbar snackbar-opened"] ~ .snackbar.toast {
+    margin-top: 20px;
+  }
+  #snackbar-container [class="snackbar snackbar-opened"] {
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+
+
+*/

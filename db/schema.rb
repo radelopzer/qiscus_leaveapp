@@ -11,6 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160514150454) do
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id",          limit: 4,                   null: false
+    t.integer "amount_taken",     limit: 4,                   null: false
+    t.string  "approval_status",  limit: 11,  default: "new", null: false
+    t.string  "message",          limit: 255,                 null: false
+    t.date    "leave_start_date",                             null: false
+    t.date    "leave_end_date",                               null: false
+    t.date    "send_date",                                    null: false
+    t.date    "checked_date"
+    t.string  "admin_respond",    limit: 255
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string  "auth_token",      limit: 255,                       null: false
+    t.string  "username",        limit: 50,                        null: false
+    t.string  "email",           limit: 255,                       null: false
+    t.string  "password_digest", limit: 255,                       null: false
+    t.boolean "role",                        default: false,       null: false
+    t.integer "amount",          limit: 4,   default: 80,          null: false
+    t.string  "profile_pict",    limit: 255
+    t.string  "status",          limit: 10,  default: "available", null: false
+    t.string  "avatar",          limit: 255
+  end
+
+  add_index "users", ["email"], name: "email", unique: true, using: :btree
 
 end

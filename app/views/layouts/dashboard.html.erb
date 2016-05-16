@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body class="avoid-fout">
 	<header class="header header-transparent header-waterfall">
@@ -20,11 +21,20 @@
 			<li>
 				<a data-toggle="menu" href="#profile">
 					<span class="access-hide"></span>
-					<span class="avatar"><img alt=""></span>
+					<% if current_user.avatar? %>
+					<span class="avatar">
+                        <%= image_tag current_user.avatar_url(:standard).to_s %>
+					</span>
+					<% else %>
+					<span class="avatar">
+						<%= image_tag 'default_picture.png'%>   	
+                     </span>
+					<% end %>
 				</a>
 			</li>
 		</ul>
 	</header>
+
 	<nav aria-hidden="true" class="menu" id="menu" tabindex="-1">
 		<div class="menu-scroll">
 			<div class="menu-content">
@@ -63,6 +73,7 @@
 			
 			<div class="menu-content">
 				<ul class="nav">
+				<li>
 					<li>
 						<a class="waves-attach" href="/profile_setting"><span class="icon icon-lg">account_box</span>Profile Settings</a>
 					</li>
@@ -90,12 +101,12 @@
 			
 		</div>
 	</div>
-	
-</body>
-<footer class="footer">
+	<footer class="footer">
 		<div class="container">
 			<marquee behavior="alternate"><p>Leave app Qiscus</p></marquee>
 		</div>
 	</footer>
+</body>
+
 </html>
 
