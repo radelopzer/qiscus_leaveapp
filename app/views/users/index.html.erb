@@ -23,6 +23,7 @@
 												</thead>
 													  
 												<tbody>
+
 													<% @users.each do |user| %>
 													<tr>
 													<td>
@@ -68,7 +69,7 @@
 												<% end %>
 												</tbody>
 											</table>
-                          
+                          <%= will_paginate @users, class:'apple_pagination' %>
                         </div>
                       </div>
                   </div>

@@ -2,9 +2,7 @@ class MessagesController < ApplicationController
 
 	layout 'dashboard'
 		def index
-			@message = Message.joins(:user) 
-			@messages = Message.all
-			@messages = Message.select("*").joins(:user)
+		
 			@messages = Message.select("messages.id, messages.approval_status, messages.leave_start_date, messages.leave_end_date, messages.amount_taken, users.id as u_id,
     				users.username").joins(:user)
 		end
@@ -64,6 +62,10 @@ class MessagesController < ApplicationController
 		else
 			redirect_to messages_url,alert: 'fail to reject'
 		end
+		end
+
+		def list_messages_approved
+		@messages=Message.all
 		end
 		private
 

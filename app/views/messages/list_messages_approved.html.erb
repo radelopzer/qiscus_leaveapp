@@ -46,8 +46,7 @@
 				<td>
 
 				<a href="#" class="btn btn-green" data-toggle="modal" data-target="#approve<%= message.id %>">Approve</a>
-				<a href="#" class="btn btn-red" data-toggle="modal" data-target="#reject<%= message.id %>">Reject</a>
-				<a href="#" class="btn btn-yellow" data-toggle="modal" data-target="#reply<%= message.id %>">Reply</a>
+				<a href="#" class="btn btn-yellow" data-toggle="modal" data-target="#reject<%= message.id %>">Reject</a>
 
 						<div aria-hidden="true" class="modal modal-va-middle fade" id="approve<%= message.id %>" role="dialog" tabindex="-1">
 						<div class="modal-dialog modal-xs">
@@ -84,7 +83,6 @@
 						<%= f.hidden_field :approval_status, value: "rejected" %>
 						<%= f.submit "Reject", class: 'btn btn-yellow' %>
 						<div class="pull-right">
-
 						<a class="btn btn-green" data-dismiss="modal">Cancel
 						</a>
 						</div>
@@ -97,29 +95,6 @@
 						
 						
 						
-						</div>
-						</div>
-						</div>
-						</div>
-
-						<div aria-hidden="true" class="modal modal-va-middle fade" id="reply<%= message.id %>" role="dialog" tabindex="-1">
-						<div class="modal-dialog modal-xs">
-						<div class="modal-content">
-						<div class="modal-inner">
-						<p class="content">Approve this leave?</p>
-						</div>
-						<div class="modal-footer">
-						<p class="text-right">
-						
-						<%= form_for message, :url => {:action => "approve", :id => message, :controller => "messages"} do |f| %>
-						<%= f.hidden_field :approval_status, value: "approved" %>
-						<%= f.submit "Approve", class: 'btn btn-green' %>
-						<div class="pull-right">
-						<a class="btn btn-yellow" data-dismiss="modal">Cancel
-						</a>
-						</div>
-						<% end %>
-						</p>
 						</div>
 						</div>
 						</div>

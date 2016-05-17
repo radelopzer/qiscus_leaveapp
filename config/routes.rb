@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/profile_setting'          =>'users#edit'
   get '/create_messages'          =>'messages#new'
   get '/create_employee_account'  =>'users#new'
-  get '/list_messages_approved' =>'static_pages#list_messages_approved'
+  get '/list_messages_approved' =>'messages#list_messages_approved'
   get '/list_messages_rejected' =>'static_pages#list_messages_rejected'
   get 'list_messages'       =>'messages#index'
   get '/list_employee'      =>'users#index'

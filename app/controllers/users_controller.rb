@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 	layout 'dashboard'
-
 	def index
-		@users=User.all
+@users = User.all.paginate(:page => params[:page], :per_page => 5)
+
 	end
 
 	def new
