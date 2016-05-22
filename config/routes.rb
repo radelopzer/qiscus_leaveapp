@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/delete'         =>'messages#index'
   patch '/:id/approve'        =>'messages#approve', as: :approve
   patch '/:id/reject'         =>'messages#reject', as: :reject
- 
+  patch '/:id/reply'          => 'messages#reply' ,as: :reply 
   #put 'messages/approve/:id'
   # match '/approve/:id'  => 'messages#approve', via: [:put, :patch]
   # match "/approve/messages:id" => "messages#approve", :via => :post, :as => :approve

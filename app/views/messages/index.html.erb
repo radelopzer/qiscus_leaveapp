@@ -106,14 +106,16 @@
 						<div class="modal-dialog modal-xs">
 						<div class="modal-content">
 						<div class="modal-inner">
-						<p class="content">Approve this leave?</p>
+						<p class="content">Reply leave message</p>
 						</div>
+
 						<div class="modal-footer">
 						<p class="text-right">
 						
-						<%= form_for message, :url => {:action => "approve", :id => message, :controller => "messages"} do |f| %>
+						<%= form_for message, :url => {:action => "reply", :id => message, :controller => "messages"} do |f| %>
+						 
 						<%= f.hidden_field :approval_status, value: "approved" %>
-						<%= f.submit "Approve", class: 'btn btn-green' %>
+						<%= f.submit "Send", class: 'btn btn-green' %>
 						<div class="pull-right">
 						<a class="btn btn-yellow" data-dismiss="modal">Cancel
 						</a>

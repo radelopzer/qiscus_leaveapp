@@ -64,12 +64,22 @@ class MessagesController < ApplicationController
 		end
 		end
 
+		def reply
+		if current_user
+			@message=Message.find(params[:id])
+			@message.reply
+			redirect_to messages_url,notice: 'reply message sent'
+		else
+			redirect_to messages_url,notice: 'fail to send'
+		end
+		end
+
 		def list_messages_approved
 		@messages=Message.all
 		end
 		private
 
 		def message_params
-			params.require(:message).permit(:user_id, :amount_taken, :approval_status, :message, :leave_start_date, :leave_end_date, :send_date, :checked_date)
+			params.require(:message).permit(:user_id, :amount_taken, :approval_status, :message, :leave_start_date, :leave_end_date, :send_date, :checked_date, :admin_respond)
 		end
 end
