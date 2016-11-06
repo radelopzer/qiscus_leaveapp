@@ -19,7 +19,7 @@
                         <div class="row">
                           <div class="col-md-10 col-md-push-1">
                             <label class="floating-label" for="login-username">New username</label>
-                            <%= a.text_field :username,class: 'form-control', id: 'login-username', placeholder: "Username", style: 'color: white;' %>
+                            <%= a.text_field :username,class: 'form-control',disabled: '', id: 'login-username', placeholder: "Username", style: 'color: white;' %>
                           </div>
                         </div>
                       </div>
@@ -83,3 +83,12 @@
       </div>
     </div>
   </div>
+
+     <% unless flash.empty? %>
+    <script type="text/javascript">
+        <% flash.each do |f| %>
+        <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+         toastr['<%= type %>']('<%= f[1] %>');
+        <% end %>
+    </script>
+   <% end %>

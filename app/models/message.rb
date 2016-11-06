@@ -16,11 +16,16 @@ class Message < ActiveRecord::Base
     c
   end
 
-  def approve
-  	update!(approval_status: 'approved')
-  end
+  # def approve
+  # 	update!(approval_status: 'approved')
+  # end
 
-  def reject
-  	update!(approval_status: 'rejected')
-  end
+  # def reject
+  # 	update!(approval_status: 'rejected')
+  # end
+
+  # def reply
+  # update!(admin_respond: admin_respond)
+  # update!(approval_status: "recheck")    
+  # end
 end

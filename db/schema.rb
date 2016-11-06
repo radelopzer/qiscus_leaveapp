@@ -11,11 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514150454) do
+ActiveRecord::Schema.define(version: 20160926144714) do
+
+  create_table "logs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.integer "user_id",          limit: 4,                   null: false
     t.integer "amount_taken",     limit: 4,                   null: false
+    t.string  "category",         limit: 15,                  null: false
     t.string  "approval_status",  limit: 11,  default: "new", null: false
     t.string  "message",          limit: 255,                 null: false
     t.date    "leave_start_date",                             null: false
@@ -30,9 +36,9 @@ ActiveRecord::Schema.define(version: 20160514150454) do
     t.string  "username",        limit: 50,                        null: false
     t.string  "email",           limit: 255,                       null: false
     t.string  "password_digest", limit: 255,                       null: false
-    t.boolean "role",                        default: false,       null: false
-    t.integer "amount",          limit: 4,   default: 80,          null: false
-    t.string  "profile_pict",    limit: 255
+    t.integer "role",            limit: 4,   default: 0,           null: false
+    t.integer "amount",          limit: 4,   default: 20,          null: false
+    t.string  "position",        limit: 255
     t.string  "status",          limit: 10,  default: "available", null: false
     t.string  "avatar",          limit: 255
   end

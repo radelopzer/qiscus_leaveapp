@@ -11,7 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require turbolinks
 //= require base
-//= require snackbar
+//= require rails-timeago-all
+//= require toastr
+//= require underscore-min
+//= require gmaps/google
+
+	

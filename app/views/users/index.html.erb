@@ -7,7 +7,7 @@
             <div class="card-wrap">
               <div class="card">
                 <div class="card-main">
-                  <h1 class="card-heading "style="color: white;">List of employees</h1>
+                  <h1 class="card-heading "style="color: white;"><span class="icon icon-lg">format_list_bulleted</span>Employees List</h1>
                     <div class="card-inner">
                       
                         
@@ -33,6 +33,12 @@
 														<%= user.email %>
 													</td>
 													<td>
+													<%	x=DateTime.now
+														if  (user.messages.leave_start_date..user.messages.leave_end_date).include?(x)
+															user.status=="not available"
+															else
+															user.status=="available"
+															end %>
 														<%= user.status %>
 													</td>
 													<td>
@@ -45,7 +51,10 @@
 													<div class="modal-content">
 													<div class="modal-inner">
 													<p class="content">Delete this account ?</p>
-													<%= link_to 'Delete', user_path(user), class: 'btn btn-red', method: :delete %>
+												
+													
+													<a class="btn btn-red" rel="nofollow" href="/delete/<%= user.id %>">delete</a>
+													
 
 													<div class="pull-right">
 													<a class="btn btn-yellow" data-dismiss="modal">Cancel
@@ -82,3 +91,11 @@
       </div>
     </div>
   </div>
+   <% unless flash.empty? %>
+    <script type="text/javascript">
+        <% flash.each do |f| %>
+        <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+         toastr['<%= type %>']('<%= f[1] %>');
+        <% end %>
+    </script>
+   <% end %>

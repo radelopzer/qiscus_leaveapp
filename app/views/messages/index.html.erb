@@ -7,7 +7,7 @@
             <div class="card-wrap">
               <div class="card">
                 <div class="card-main">
-                  <h1 class="card-heading "style="color: white;">List of employees leave messages</h1>
+                  <h1 class="card-heading "style="color: white;"><span class="icon icon-lg">format_list_bulleted</span>List of employees leave messages</h1>
                     <div class="card-inner">
                       
                         
@@ -44,21 +44,31 @@
 				</td>
 				
 				<td>
-
-				<a href="#" class="btn btn-green" data-toggle="modal" data-target="#approve<%= message.id %>">Approve</a>
-				<a href="#" class="btn btn-red" data-toggle="modal" data-target="#reject<%= message.id %>">Reject</a>
+<% if message.approval_status=="new" || message.approval_status=="recheck" || message.approval_status=="renew" %>				<a href="#" class="btn btn-green" data-toggle="modal" data-target="#approve<%= message.id %>">Approve</a>
+				<% else %>
+				
+				<% end %>
+<% if message.approval_status=="new" || message.approval_status=="recheck" || message.approval_status=="renew" %>				<a href="#" class="btn btn-red" data-toggle="modal" data-target="#reject<%= message.id %>">Reject</a>
+				<% else %>
+				<% end %>
+				<% if message.approval_status=="new" || message.approval_status=="recheck" || message.approval_status=="renew" %>
 				<a href="#" class="btn btn-yellow" data-toggle="modal" data-target="#reply<%= message.id %>">Reply</a>
+				<% else %>
+				<% end %>
 
 						<div aria-hidden="true" class="modal modal-va-middle fade" id="approve<%= message.id %>" role="dialog" tabindex="-1">
+						<%= form_for message, :url => {:action => "approve", :id => message, :controller => "messages"} do |f| %>
 						<div class="modal-dialog modal-xs">
 						<div class="modal-content">
 						<div class="modal-inner">
-						<p class="content">Approve this leave?</p>
+						<p class="content">Approve this leave message ?</p>
 						</div>
 						<div class="modal-footer">
 						<p class="text-right">
-						<%#= form_for Message.find(message.id),method: :approve_path do |f| %>
-						<%= form_for message, :url => {:action => "approve", :id => message, :controller => "messages"} do |f| %>
+						
+						
+						
+                     </p>
 						<%= f.hidden_field :approval_status, value: "approved" %>
 						<%= f.submit "Approve", class: 'btn btn-green' %>
 						<div class="pull-right">
@@ -114,7 +124,9 @@
 						
 						<%= form_for message, :url => {:action => "reply", :id => message, :controller => "messages"} do |f| %>
 						 
-						<%= f.hidden_field :approval_status, value: "approved" %>
+                        <%= f.text_field :admin_respond,class: 'form-control', id: 'admin_respond', placeholder: "your reply please", style: 'color: white;' %>
+                        </p>
+						<%= f.hidden_field :approval_status, value: "recheck" %>
 						<%= f.submit "Send", class: 'btn btn-green' %>
 						<div class="pull-right">
 						<a class="btn btn-yellow" data-dismiss="modal">Cancel
@@ -133,6 +145,8 @@
 			<% end %>
 			</tbody>
 		</table>
+		<%= will_paginate @messages, class:'apple_pagination' %>
+
                           
                     </div>
             </div>

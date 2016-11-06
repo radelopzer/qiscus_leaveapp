@@ -15,9 +15,17 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'carrierwave'
 
+gem 'rails-timeago', '~> 2.0'
+
+gem 'cancancan', '~> 1.10'
+
 gem 'simple_calendar', '~>2.0'
 
 gem 'will_paginate', '~> 3.1.0'
+
+gem 'toastr-rails'
+
+gem 'gmaps4rails'
 
 gem 'mini_magick'
 # Use jquery as the JavaScript library

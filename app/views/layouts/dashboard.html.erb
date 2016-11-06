@@ -1,5 +1,6 @@
 <TYPE html>
 <html lang="en">
+
 <head>
   <title><%= yield(:title) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -8,18 +9,28 @@
 
 </head>
 <body class="avoid-fout">
-	<header class="header header-transparent header-waterfall" >
 
+	<header class="header header-transparent header-waterfall">
+<div class="content">
+		
+						
+					
 		<ul class="nav nav-list pull-left">
 			<li>
-				<a data-toggle="menu" href="#menu">
+				<a data-toggle="menu" href="#menu" >
+				
 					<span class="icon icon-lg">menu</span>
+					
+
 				</a>
+
+
 			</li>
 		</ul>
 		
 		<ul class="nav nav-list pull-right">
 			<li>
+				
 				<a data-toggle="menu" href="#profile">
 					<span class="access-hide"></span>
 					<% if current_user.avatar? %>
@@ -42,22 +53,22 @@
 				
 				<ul class="nav">
 					<li>
-						<a class="waves-attach" href="/create_messages">Create messages</a>
+						<a class="waves-attach" href="/dashboard">Dashboard</a>
 					</li>
 					<li>
+						<a class="waves-attach" href="/create_messages">Create messages</a>
+					</li>
+				
+					<li>
+
 						<a class="waves-attach" href="/list_employee">List Employees</a>
+					
 					</li>
 					<li>
 						<a class="waves-attach" href="/list_messages">List messages</a>
 					</li>
-					<li>
-						<a class="waves-attach" href="/list_messages_approved">List messages approved</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="/list_messages_rejected">List messages rejected</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="/resubmit_message">Resubmit message</a>
+						
+						<a class="waves-attach" href="/resubmit">Resubmit message</a>
 					</li>
 					
 					<li>
@@ -69,7 +80,7 @@
 			</div>
 		</div>
 	</nav>
-	<nav aria-hidden="true" class="menu menu-right" id="profile" tabindex="-1">
+	<nav aria-hidden="true" class="menu menu-right" id="profile" tabindex="0">
 		<div class="menu-scroll">
 			
 			<div class="menu-content">
@@ -78,35 +89,42 @@
 					<li>
 						<a class="waves-attach" href="/profile_setting"><span class="icon icon-lg">account_box</span>Profile Settings</a>
 					</li>
-					
+					<li>
+						<a class="waves-attach" href="/history"><span class="icon icon-lg">history</span>history</a>
+					</li>
 					<li>
 						<a class="waves-attach" href="/logout"><span class="icon icon-lg">exit_to_app</span>Logout</a>
 					</li>
+					
 				</ul>
 			</div>
 		</div>
 	</nav>
-	<div class="content">
-		<div class="content-heading">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
-						<h1 class="heading" style="text-align: center"><iframe src="http://free.timeanddate.com/clock/i56m3ycj/n666/fn11/fs18/fc9f0/tct/pct/avt/tt0" frameborder="0" width="396" height="23" allowTransparency="true"></iframe>
-						</h1>
-					</div>
-				</div>
-			</div>
-		</div>
+	
 		<%= yield %>
 		<div class="container">
 			
 		</div>
 	</div>
+	<br>
+	<br>
+	<br>
 	<footer class="footer">
 		<div class="container">
-			<marquee behavior="alternate"><p>Leave app Qiscus</p></marquee>
+			<p>Qiscus Leave App</p>
 		</div>
 	</footer>
+	<div class="fbtn-container">
+		<div class="fbtn-inner">
+			<a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light" data-toggle="dropdown"><span class="fbtn-text fbtn-text-left">Links</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
+			<div class="fbtn-dropup">
+				<a class="fbtn waves-attach waves-circle" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text fbtn-text-left">Fork me on GitHub</span><span class="icon">code</span></a>
+				<a class="fbtn fbtn-brand waves-attach waves-circle waves-light" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text fbtn-text-left">Follow Daemon on Twitter</span><span class="icon">share</span></a>
+				<a class="fbtn fbtn-green waves-attach waves-circle" href="https://qisc.us/web.html" target="_blank"><span class="fbtn-text fbtn-text-left">Visit Qiscus</span><span class="icon">Q</span></a>
+			</div>
+		</div>
+	</div>
+
 </body>
 
 </html>

@@ -1,0 +1,37 @@
+<div class="content">
+    <div class="container">
+      <div class="row">
+    
+          <section class="content-inner">
+            <div class="card-wrap">
+              <div class="card">
+                <div class="card-main">
+                  <div class="card-header">
+                    <div class="card-inner">
+                      <h1 class="card-heading "style="color: white;">Account history</h1>
+                    </div>
+
+                  </div>
+                  <div class="card-inner">
+                    <hr>
+                    <% @logs.each do |loga| %>
+                    <li><%= current_user.username  %> <%= loga.event %> at <%= timeago_tag loga.event_time, :nojs => true, :limit => 10.days.ago, :lang => :en %> </li>
+                  <!-- <li> <%= loga.event %> at <%= timeago_tag current_user_log.event_time, :nojs => true, :limit => 10.days.ago %> </li> -->
+                  
+                   <br>
+
+                        <% end %>
+                        </div>
+
+                      </div>
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+              
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
