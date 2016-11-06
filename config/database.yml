@@ -48,7 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: qiscus_leaveapp_production
-  username: qiscus_leaveapp
-  password: <%= ENV['QISCUS_LEAVEAPP_DATABASE_PASSWORD'] %>
+   adapter: sqlite3
+  pool: 5
+  timeout: 5000
+  database: db/production.sqlite3
