@@ -13,7 +13,6 @@
 //= require jquery
 //= require turbolinks
 //= require base
-//= require rails-timeago-all
 //= require toastr
 //= require underscore-min
 //= require gmaps/google

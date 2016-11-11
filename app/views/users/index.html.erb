@@ -25,43 +25,73 @@
 												<tbody>
 
 													<% @users.each do |user| %>
+													
 													<tr>
+													
 													<td>
-														<%= user.username %>
+														<p  href="#" data-toggle="modal" id="#detail<%= user.id %>"><%= user.username %></p>
+
+														<div aria-hidden="true" class="modal modal-va-middle fade" id="approve<%= user.id %>" role="dialog">
+												
+														<div class="modal-dialog modal-xs">
+														<div class="modal-content">
+														<div class="modal-inner">
+														<p class="content">User Details</p>
+														</div>
+														<div class="modal-footer">
+														<p class="text-right">
+														
+														
+														
+								                     </p>
+														
+														<div class="pull-right">
+														<a class="btn btn-yellow" data-dismiss="modal">Cancel
+														</a>
+														</div>
+														
+														</p>
+														</div>
+														</div>
+														</div>
+														</div>
 													</td>
 													<td>
 														<%= user.email %>
 													</td>
 													<td>
-													<%	x=DateTime.now
-														if  (user.messages.leave_start_date..user.messages.leave_end_date).include?(x)
-															user.status=="not available"
-															else
-															user.status=="available"
-															end %>
+													
 														<%= user.status %>
 													</td>
 													<td>
 														<%= user.amount %>
 													</td>
 													<td>
-													<a href="#" class="btn btn-red" data-toggle="modal" data-target="#<%= user.id %>">Delete account</a>
+													<% if user.contract=="Active" %>
+													<a href="#" class="btn btn-red" data-toggle="modal" data-target="#<%= user.id %>">Deactive</a>
+													<% else %>
+													inactive user
+													<% end %>
 													<div aria-hidden="true" class="modal modal-va-middle fade" id="<%= user.id %>" role="dialog" tabindex="-1">
-													<div class="modal-dialog modal-xs">
-													<div class="modal-content">
-													<div class="modal-inner">
-													<p class="content">Delete this account ?</p>
-												
-													
-													<a class="btn btn-red" rel="nofollow" href="/delete/<%= user.id %>">delete</a>
-													
+						<div class="modal-dialog modal-xs">
+						<div class="modal-content">
+						<div class="modal-inner">
+						<p class="content">Deactive this Account?</p>
+						</div>
+						<div class="modal-footer">
+						<p class="text-right">
+						<%= form_for user,:url => {:action => "deactive", :id => user, 
+							:controller => "users" } do |f| %>
+						<%= f.hidden_field :contract, value: "inactive" %>
+						<%= f.submit "Deactive", class: 'btn btn-red' %>
+						<div class="pull-right">
 
-													<div class="pull-right">
-													<a class="btn btn-yellow" data-dismiss="modal">Cancel
-													</a>
-													</div>
-													
-													</p>
+						<a class="btn btn-green" data-dismiss="modal">Cancel
+						</a>
+						</div>
+						<% end %>
+						</p>
+
 						
 						
 						
@@ -72,9 +102,6 @@
 						</div>
 						</div>
 						</div>
-		
-					 
-				
 												<% end %>
 												</tbody>
 											</table>

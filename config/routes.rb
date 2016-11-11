@@ -18,12 +18,12 @@ Rails.application.routes.draw do
   get '/resubmit'      =>'messages#resubmit'
   get '/dashboard'      =>'static_pages#index'
   get '/delete/:id'         =>'users#destroy'
-  get '/promo'                => 'promo#index'
   get '/story'                => 'story#index'
   patch '/:id/resubmit_mess'       =>'messages#resubmit_mess', as: :resubmit_mess
   patch '/:id/approve'        =>'messages#approve', as: :approve
   patch '/:id/reject'         =>'messages#reject', as: :reject
   patch '/:id/reply'          => 'messages#reply' ,as: :reply
+  patch '/:id/deactive'          => 'users#deactive' ,as: :deactive
 
   #put 'messages/approve/:id'
   # match '/approve/:id'  => 'messages#approve', via: [:put, :patch]
@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   resources :users
   resources :messages
   resources :logs
+  resources :promos
 
 
 

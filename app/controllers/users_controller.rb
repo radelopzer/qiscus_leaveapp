@@ -22,10 +22,22 @@ class UsersController < ApplicationController
 		end
 	end
 	
-	def destroy
-		User.find(params[:id]).destroy
-    redirect_to users_url, notice: 'Success to delete user'
+	def deactive
+		
+			@user= User.find(params[:id])
+			
+				
+				if @user.update(user_params)
+				
+				 record_activity(current_user.id, 'deactive account ')
+
+			else
+				redirect_to users_url,alert: 'fail to reject'
+			end
+		
+    redirect_to users_url, notice: 'Success to deactive'
 	end
+
 
 	def update
 		@user = current_user
@@ -43,6 +55,6 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit( :gender,:avatar, :password_confirmation, :username, :auth_token, :email, :password, :role, :amount, :status, :position )
+		params.require(:user).permit( :contract, :gender,:avatar, :password_confirmation, :username, :auth_token, :email, :password, :role, :amount, :status, :position )
 	end
 end

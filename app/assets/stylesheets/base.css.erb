@@ -39,6 +39,7 @@ body {
   line-height: 20px;
   margin: 0;
   padding: 0;
+  position: relative;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: subpixel-antialiased;
 
@@ -5797,7 +5798,7 @@ pre code {
 .dropdown.open {
   -webkit-transition: z-index 0s;
           transition: z-index 0s;
-  z-index: 21;
+  z-index: 50;
 }
 .dropdown [data-toggle="dropdown"] {
   cursor: pointer;
@@ -6466,7 +6467,7 @@ fieldset[disabled] .radio-adv input[type="radio"]:checked ~ .circle-icon {
 
 .picker__box {
   background-clip: padding-box;
-  background-color: #4CAF4F;
+  background-color: grey;
   border-radius: 4px;
   box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
   outline: 0;
@@ -6499,7 +6500,7 @@ fieldset[disabled] .radio-adv input[type="radio"]:checked ~ .circle-icon {
 }
 
 .picker__date-display {
-  background-color: #4caf50;
+  background-color: grey;
   border-radius: 4px 4px 0 0;
   color: #ffffff;
   padding: 10px 16px;
@@ -7075,7 +7076,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   opacity: 0.5;
 }
 .menu ~ .modal-backdrop {
-  z-index: 30;
+  z-index: 25;
 }
 .menu ~ .modal-backdrop.in {
   opacity: 0.5;
@@ -8177,7 +8178,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   width: 1%;
 }
 .table > thead th {
-  color: #C0FFD5;
+  color: #d2d4d3;
   font-size: 20px;
   vertical-align: bottom;
 }
@@ -8725,14 +8726,14 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
 .header {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  background-color: #4caf50;
+  background-color: grey;
   color: #ffffff;
   min-height: 56px;
   padding-top: 4px;
   padding-bottom: 4px;
   -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s linear;
           transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s linear;
-  z-index: 30;
+  z-index: 29;
 }
 .header:after, .header:before {
   content: "";

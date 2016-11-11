@@ -10,8 +10,9 @@
 </head>
 <body class="avoid-fout">
 
-	<header class="header header-transparent header-waterfall">
+	<header class="header header-standard">
 <div class="content">
+
 		
 						
 					
@@ -27,6 +28,7 @@
 
 			</li>
 		</ul>
+		
 		
 		<ul class="nav nav-list pull-right">
 			<li>
@@ -55,24 +57,32 @@
 					<li>
 						<a class="waves-attach" href="/dashboard">Dashboard</a>
 					</li>
-					<li>
-						<a class="waves-attach" href="/create_messages">Create messages</a>
-					</li>
+					<a class="waves-attach waves-effect collapsed" data-toggle="collapse" href="#ui_menu_messsages" aria-expanded="false">Messages</a>
+					<ul class="menu-collapse collapse" id="ui_menu_messsages">
+							<li>
+
+								<a class="waves-attach" href="/create_messages">Create messages</a>
+							</li>
+							
+							<li>
+								<a class="waves-attach" href="/list_messages">List messages</a>
+							</li>
+						
+								<a class="waves-attach" href="/resubmit">Resubmit message</a>
+							</li>
+						</ul>
+						
+				    
 				
 					<li>
 
-						<a class="waves-attach" href="/list_employee">List Employees</a>
+								<a class="waves-attach" href="/list_employee">List Employees</a>
 					
 					</li>
-					<li>
-						<a class="waves-attach" href="/list_messages">List messages</a>
-					</li>
-						
-						<a class="waves-attach" href="/resubmit">Resubmit message</a>
-					</li>
+					
 					
 					<li>
-						<a class="waves-attach" href="/create_employee_account">Create Employee accounts</a>
+								<a class="waves-attach" href="/create_employee_account">Create Employee accounts</a>
 					</li>
 					
 				</ul>
@@ -81,6 +91,7 @@
 		</div>
 	</nav>
 	<nav aria-hidden="true" class="menu menu-right" id="profile" tabindex="0">
+
 		<div class="menu-scroll">
 			
 			<div class="menu-content">
@@ -109,16 +120,12 @@
 	<br>
 	<br>
 	<br>
-	<footer class="footer">
-		<div class="container">
-			<p>Qiscus Leave App</p>
-		</div>
-	</footer>
+	
 	<div class="fbtn-container">
 		<div class="fbtn-inner">
-			<a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light" data-toggle="dropdown"><span class="fbtn-text fbtn-text-left">Links</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
+			<a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light" data-toggle="dropdown"><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
 			<div class="fbtn-dropup">
-				<a class="fbtn waves-attach waves-circle" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text fbtn-text-left">Fork me on GitHub</span><span class="icon">code</span></a>
+				<a class="fbtn waves-attach waves-circle" href="/promos"><span class="icon">local_offer</span></a>
 				<a class="fbtn fbtn-brand waves-attach waves-circle waves-light" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text fbtn-text-left">Follow Daemon on Twitter</span><span class="icon">share</span></a>
 				<a class="fbtn fbtn-green waves-attach waves-circle" href="https://qisc.us/web.html" target="_blank"><span class="fbtn-text fbtn-text-left">Visit Qiscus</span><span class="icon">Q</span></a>
 			</div>

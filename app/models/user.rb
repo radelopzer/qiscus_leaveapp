@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 		user.status=="not available"
 	else
 	end
-
+	
 	
 	end
 	
