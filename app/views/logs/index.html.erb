@@ -18,7 +18,7 @@
                   <div class="card-main">
                     <hr>
                     <% @logs.each do |loga| %>
-                    <li><div class="card-content"><%= current_user.username  %> <%= loga.event %> at <%= loga.event_time %><hr> </div></li>
+                      &nbsp; <li><div class="card-content"> <%= current_user.username  %> <%= loga.event %> at <%=time_ago_in_words loga.event_time %><hr> </div></li>
                  
                   
                    <br>

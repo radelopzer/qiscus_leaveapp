@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
 		def index
 		
 			@messages = Message.select("messages.id, messages.message, messages.approval_status, messages.leave_start_date, messages.leave_end_date, messages.amount_taken, messages.admin_respond, messages.category, users.id as u_id,
-    				users.username").joins(:user).paginate(:page => params[:page],:per_page => 5)
+    				users.username").joins(:user).paginate(:page => params[:page],:per_page => 10)
 		end
 
 		def new

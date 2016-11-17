@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base  
 	has_many :messages
 	has_many :logs
+	has_many :promos
+
+	has_many :satu, :class_name => 'Promo', :foreign_key => 'employee'
+    has_many :dua, :class_name => 'Promo', :foreign_key => 'management'
 	# has_and_belongs_to_many :messages
 	has_secure_password
 	before_create :set_auth_token
