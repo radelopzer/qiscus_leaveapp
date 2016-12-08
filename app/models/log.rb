@@ -8,5 +8,5 @@ class Log < ActiveRecord::Base
 
 	def self.list_log
     where(user_id: current_user.id)
-  end
+    end
 end

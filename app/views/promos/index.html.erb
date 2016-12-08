@@ -1,0 +1,180 @@
+<br>
+<br>
+<div class="col-lg-6 col-lg-offset-3 col-md-11 ">
+					<section class="content-inner margin-top-no">
+						<nav class="tab-nav ui-tab">
+							
+						
+						<h2 class="content-sub-heading">Promo Management</h2>
+						<div class="card">
+							<div class="card-main">
+								<nav class="tab-nav">
+									<ul class="nav nav-justified">
+										<li class="active">
+											<a class="waves-attach waves-effect" data-toggle="tab" href="#new_promo" aria-expanded="false">New Promo</a>
+										</li>
+										<li class="">
+											<a class="waves-attach waves-effect" data-toggle="tab" href="#promo_taken" aria-expanded="true">Promo Taken</a>
+										</li>
+                    <li class="">
+                      <a class="waves-attach waves-effect" data-toggle="tab" href="#expired_promo" aria-expanded="true">expired promo</a>
+                    </li>
+										
+									</ul>
+								<div class="tab-nav-indicator" style="left: 246.672px; right: 250.328px;"></div></nav>
+								<div class="card-inner">
+									<div class="tab-content">
+										<div class="tab-pane fade active in" id="new_promo">
+											<%= form_for @new do |a| %>
+                     
+                   <div class="form-group-green form-group-label">
+                        <div class="row">
+                          <div class="col-md-10 col-md-push-1">
+                            <label class="floating-label" for="title">Promo Title
+                            </label>
+                            <%= a.text_field :title , class: 'form-control', id: 'message', placeholder: "title",style: 'color: white;' %>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group-green form-group-label">
+                        <div class="row">
+                          <div class="col-md-10 col-md-push-1">
+                            <label class="floating-label" for="leave_start_date">Start at</label>
+
+                            <%= a.text_field :start_date,class: 'form-control', id: 'selector1', placeholder: "start_date", style: 'color: white;' %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group-green form-group-label">
+                        <div class="row">
+                          <div class="col-md-10 col-md-push-1">
+                            <label class="floating-label" for="login-password">End at</label>
+                            <%= a.text_field :end_date,id: 'selector2', class: 'form-control', placeholder: "end_date",style: 'color: white' %>
+                          </div>
+                        </div>
+                      </div>
+                       <div class="form-group-green form-group-label">
+                        <div class="row">
+                          <div class="col-md-10 col-md-push-1">
+                            <label class="floating-label" for="leave_start_date">Expire at</label>
+
+                            <%= a.text_field :expired_date,class: 'form-control', id: 'selector3', placeholder: "expire at", style: 'color: white;' %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group-green form-group-label">
+                        <div class="row">
+                          <div class="col-md-10 col-md-push-1">
+                            <label class="floating-label" for="message">Promo Information
+                            </label>
+                            <%= a.text_field :message, class: 'form-control textarea-autosize', id: 'promo', placeholder: "message",style: 'color: white;' %>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="row">
+
+                          <div class="col-md-10 col-md-push-1">
+                            <%= a.submit "Create Promo",class:'btn btn-block btn-green' %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                        </div>
+                      </div>
+                    
+                    <% end %>
+                    </div>
+										<div class="tab-pane fade" id="promo_taken">
+											
+                      <div class="simple-calendar">
+              <table class="table" title="Promo Taken table">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Message</th>
+                    <th>Leave Start at</th>
+                    <th>Leave End at</th>
+                    <th>Promo Taker</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                <% @list_taken.each do |promo| %>
+                  <tr>
+                    <td><%= promo.title %></td>
+                    <td><%= promo.message %></td>
+                    <td><%= promo.start_date %></td>
+                    <td><%= promo.end_date %></td>
+                    <td><%= promo.management.username %></td>
+                    <% end %>
+                  </tr>
+                   </tbody>
+              </table>
+            </div>
+                      
+										</div>
+
+                    <div class="tab-pane fade" id="expired_promo">
+                      <div class="simple-calendar">
+              <table class="table" title="Promo Taken table" >
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Message</th>
+                    <th>Leave Start at</th>
+                    <th>Leave End at</th>
+                    <th>Promo Taker</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                <% @expire_list.each do |promo| %>
+                  <tr>
+                    <td><%= promo.title %></td>
+                    <td><%= promo.message %></td>
+                    <td><%= promo.start_date %></td>
+                    <td><%= promo.end_date %></td>
+                    <td><%= promo.expired_date %></td>
+                    <% end %>
+                  </tr>
+                   </tbody>
+              </table>
+            </div>
+                    </div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+
+						
+					</section>
+          <br>
+				</div>
+<br>
+<br>
+
+
+
+
+        <script type="text/javascript">
+   $('#selector1').pickdate();
+  </script>
+  <script type="text/javascript">
+   $('#selector2').pickdate();
+  </script>
+  <script type="text/javascript">
+   $('#selector3').pickdate();
+  </script>
+  <% unless flash.empty? %>
+    <script type="text/javascript">
+        <% flash.each do |f| %>
+        <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+         toastr['<%= type %>']('<%= f[1] %>');
+        <% end %>
+    </script>
+   <% end %>

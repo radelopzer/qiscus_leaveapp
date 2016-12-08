@@ -55,14 +55,16 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.10.0)
+    coffee-script-source (1.11.1)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
+    geocoder (1.4.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
+    hirb (0.7.3)
     i18n (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -87,7 +89,7 @@ GEM
     mysql2 (0.4.5)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-    rack (1.6.4)
+    rack (1.6.5)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.5.1)
@@ -126,7 +128,7 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    simple_calendar (2.2.0)
+    simple_calendar (2.2.1)
       rails (>= 3.0)
     spring (2.0.0)
       activesupport (>= 4.2)
@@ -165,7 +167,9 @@ DEPENDENCIES
   cancancan (~> 1.10)
   carrierwave
   coffee-rails (~> 4.1.0)
+  geocoder
   gmaps4rails
+  hirb (~> 0.7.3)
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick

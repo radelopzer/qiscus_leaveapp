@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/profile_setting'          =>'users#edit'
   get '/create_messages'          =>'messages#new'
   get '/create_employee_account'  =>'users#new'
-  get '/list_messages_approved' =>'promo#index'
+  
   get '/list_messages_rejected' =>'static_pages#list_messages_rejected'
   get 'list_messages'       =>'messages#index'
   get '/list_employee'      =>'users#index'
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   patch '/:id/reject'         =>'messages#reject', as: :reject
   patch '/:id/reply'          => 'messages#reply' ,as: :reply
   patch '/:id/deactive'          => 'users#deactive' ,as: :deactive
-
+  patch '/:id/take_promo'        => 'promos#take_promo'   , as: :take_promo
   #put 'messages/approve/:id'
   # match '/approve/:id'  => 'messages#approve', via: [:put, :patch]
   # match "/approve/messages:id" => "messages#approve", :via => :post, :as => :approve
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
   get 'users/show'
   
-
+  resources :stories
   resources :sessions
   resources :users
   resources :messages

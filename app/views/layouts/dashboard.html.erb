@@ -25,9 +25,9 @@
 
 				</a>
 
-
 			</li>
 		</ul>
+
 		
 		
 		<ul class="nav nav-list pull-right">
@@ -47,6 +47,7 @@
 				</a>
 			</li>
 		</ul>
+		<h4 class="margin-no" align="right" style="color: #32C24D;padding: 10px;" > <%=current_user.username %></h4>
 	</header>
 
 	<nav aria-hidden="true" class="menu" id="menu" tabindex="-1">
@@ -127,9 +128,11 @@
 		<div class="fbtn-inner">
 			<a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light" data-toggle="dropdown"><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
 			<div class="fbtn-dropup">
+				<a class="fbtn fbtn-yellow waves-attach waves-circle" href="/create_messages"><span class="fbtn-text fbtn-text-left">Create Leave application</span><span class="icon">create</span></a>
 				<a class="fbtn waves-attach waves-circle" href="/promos"><span class="icon">local_offer</span></a>
-				<a class="fbtn fbtn-brand waves-attach waves-circle waves-light" href="/story" target="_blank"><span class="fbtn-text fbtn-text-left">Follow Daemon on Twitter</span><span class="icon">share</span></a>
+				<a class="fbtn fbtn-brand waves-attach waves-circle waves-light" href="/stories"><span class="fbtn-text fbtn-text-left">Follow Daemon on Twitter</span><span class="icon">share</span></a>
 				<a class="fbtn fbtn-green waves-attach waves-circle" href="https://qisc.us/web.html" target="_blank"><span class="fbtn-text fbtn-text-left">Visit Qiscus</span><span class="icon">Q</span></a>
+
 			</div>
 		</div>
 	</div>

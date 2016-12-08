@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 		@user.avatar
 		
 	    if @user.save
-		   record_activity(current_user.id, 'create user')
+		   record_activity(current_user.id, 'create user params:[username]' )
 		  redirect_to '/list_employee', notice: 'success to create user'
 		else
 		  render :new, alert: 'fail to create user'

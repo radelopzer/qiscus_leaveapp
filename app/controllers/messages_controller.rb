@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
 		end
 
 		def new
+			
 		@message =Message.new
 		
 		end
@@ -16,12 +17,13 @@ class MessagesController < ApplicationController
 		end
 
 		def create
+		
 		@message = Message.new(message_params)
 		
 		@message.user_id=current_user.id
 	    working_days = @message.calculate_working_day
 	    @message.amount_taken = working_days
-	    	@message.send_date = Date.today.to_s
+	    	@message.send_date = Time.now.to_s
 	    	if 	
 
 	    		@message.amount_taken<= current_user.amount && @message.amount_taken>0
@@ -33,6 +35,7 @@ class MessagesController < ApplicationController
 			else
 				render :new, alert: 'fail to create message'
 			end
+		
 		end
 
 		

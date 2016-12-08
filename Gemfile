@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'carrierwave'
 
-
+gem 'hirb', '~> 0.7.3'
 
 gem 'cancancan', '~> 1.10'
 
@@ -24,6 +24,8 @@ gem 'simple_calendar', '~>2.0'
 gem 'will_paginate', '~> 3.1.0'
 
 gem 'toastr-rails'
+
+gem 'geocoder'
 
 gem 'gmaps4rails'
 

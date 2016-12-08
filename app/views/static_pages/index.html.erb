@@ -3,16 +3,80 @@
 <br>
 <br>
 <br>
-
 <div class=".col-md-5">
+<div class="card">
+<% a="fresh promo" %>
+		<div class="card-head">
+		<hr>
+		<div  class="card-title" id="title" ><font size=+15 ><%= a %></font>
+		<hr>
+<% if @promo_avail %>
+<% @promo_avail.each do |promo| %>
 
+	
+<a href="#" class="btn btn-flat waves-attach waves-effect" data-toggle="modal" data-target="#<%= promo.id %>"><span class="icon">local_offer</span><%= promo.title %></a>
+						<div aria-hidden="true" class="modal modal-va-middle fade" id="<%= promo.id %>"  role="dialog">
+								<div class="modal-dialog modal-xs">
+											<%= form_for promo, :url => {:action => "take_promo", :id => promo, :controller => "promos"} do |p| %>
+											<div class="card">
+									<div class="modal-heading">
+										<h2 class="modal-title">Take this offer ?</h2>
+											<div class="modal-content">
+												<div class="modal-inner">
+													<ul>
+														<li>Title : <%= promo.title %> </li>
+														<li>Leave Start at : <%= promo.start_date %> </li>
+														<li>Leave End at : <%= promo.end_date %> </li>
+														<li>Promo Expire at : <%= promo.expired_date %> </li>
+														<li>Additional information : <%= promo.message %> </li>
+													</ul>
+												
+												</div>
+												<div class="modal-footer">
+												
+															<div align="middle">
+															<%= p.hidden_field :taker_id, value: current_user.id %>
+															<%= p.submit "Take", class: 'btn btn-trans' %>
+															<% end %>
+															</div>
+
+												</div>
+											</div>
+											</div>
+												
+									</div>	
+								</div>
+
+												
+						</div>
+						<% end %>
+						<% else %>
+						<% a=="hello" %>
+						<% end %>
+
+		</div>
+		<br>
+		</div>
+		
+
+
+
+</div>
+</div>
+<div class="card">
+	<div class="col-md-12">
+		<h1>Leave Calender</h1>
+
+	
+
+	
 
 <%= month_calendar do |date| %>
   
   
   <% @messages.each do |message| %>
 		 		
-	<div>
+	
 
 	
 		<% if (message.leave_start_date..message.leave_end_date).map { |e| e  }.include?(date)%>
@@ -20,7 +84,7 @@
 		
 		<%= message.user.username %>
 		</a>
-		<br>
+		
 		 <div aria-hidden="true" class="modal modal-va-middle fade" id="<%= message.id %>" role="dialog" tab-index="0" position="fixed">
 													<div class="modal-dialog modal-xs">
 													<div class="card-calendar">
@@ -51,11 +115,13 @@
 	</div>
  </div>
  </div>
- 
-
+ </div>
 		<% end %> 
 													<h2><%= date.day %></h2>
 	<% end %>
+	
+
+
 	
 																					</body>
 																						 <% unless flash.empty? %>
@@ -70,31 +136,4 @@
 
 
 
-																						 <script type="text/javascript">
-																						 	var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1} 
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none"; 
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block"; 
-  dots[slideIndex-1].className += " active";
-}
-																						 </script>
+																						

@@ -1,5 +1,4 @@
 
-<div class="content">
     <div class="container">
       <div class="row">
       
@@ -11,7 +10,7 @@
                     <div class="card-inner">
                       
                         
-								<table class="table">
+								<table class="simple-calendar">
 			<thead>
 				<tr>
 					<th>Sender</th>
@@ -44,102 +43,79 @@
 				</td>
 				
 				<td>
-<% if message.approval_status=="new" || message.approval_status=="recheck" || message.approval_status=="renew" %>				<a href="#" class="btn btn-green" data-toggle="modal" data-target="#approve<%= message.id %>">Approve</a>
+<% if message.approval_status=="new"  || message.approval_status=="renew" %>
+<a href="#" class="btn btn-green" data-toggle="modal" data-target="#approve<%= message.id %>">Approve</a>
+<a href="#" class="btn btn-red" data-toggle="modal" data-target="#reject<%= message.id %>">Reject</a>
+<a href="#" class="btn btn-yellow" data-toggle="modal" data-target="#reply<%= message.id %>">Reply</a>
+				<% elsif message.approval_status=="recheck" %>
+				<p>Waiting for Employee to resubmit</p>
 				<% else %>
-				
-				<% end %>
-<% if message.approval_status=="new" || message.approval_status=="recheck" || message.approval_status=="renew" %>				<a href="#" class="btn btn-red" data-toggle="modal" data-target="#reject<%= message.id %>">Reject</a>
-				<% else %>
-				<% end %>
-				<% if message.approval_status=="new" || message.approval_status=="recheck" || message.approval_status=="renew" %>
-				<a href="#" class="btn btn-yellow" data-toggle="modal" data-target="#reply<%= message.id %>">Reply</a>
-				<% else %>
+				<p>Already fixed</p>
 				<% end %>
 
-						<div aria-hidden="true" class="modal modal-va-middle fade" id="approve<%= message.id %>" role="dialog" tabindex="-1">
-						<%= form_for message, :url => {:action => "approve", :id => message, :controller => "messages"} do |f| %>
-						<div class="modal-dialog modal-xs">
-						<div class="modal-content">
-						<div class="modal-inner">
-						<p class="content">Approve this leave message ?</p>
-						</div>
-						<div class="modal-footer">
-						<p class="text-right">
-						
-						
-						
-                     </p>
-						<%= f.hidden_field :approval_status, value: "approved" %>
-						<%= f.submit "Approve", class: 'btn btn-green' %>
-						<div class="pull-right">
-						<a class="btn btn-yellow" data-dismiss="modal">Cancel
-						</a>
-						</div>
-						<% end %>
+	<div aria-hidden="true" class="modal modal-va-middle fade modal-va-middle fade" id="approve<%= message.id %>" 	role="dialog" tabindex="-1" style="padding-right: 15px;">
+				<%= form_for message, :url => {:action => "approve", :id => message, :controller => "messages"} do |f| %>
+				<%= f.hidden_field :approval_status, value: "approved" %>
+			<div class="modal-dialog modal-xs">
+				<div class="modal-content">
+					<div class="modal-inner">
+						<p class="h5 margin-top-sm text-black-hint">Approve this leave message?</p>
+					</div>
+				<div class="modal-footer">
+						<p class="text-right"><%= f.submit "Approve", class: 'btn btn-flat' %>
+						<a class ="btn btn-flat btn-brand-accent waves-attach waves-effect" data-dismiss="modal">cancel</a>
 						</p>
-						</div>
-						</div>
-						</div>
-						</div>
-						<div aria-hidden="true" class="modal modal-va-middle fade" id="reject<%= message.id %>" role="dialog" tabindex="-1">
-						<div class="modal-dialog modal-xs">
-						<div class="modal-content">
-						<div class="modal-inner">
-						<p class="content">Reject this leave ?</p>
-						</div>
-						<div class="modal-footer">
-						<p class="text-right">
-						<%= form_for message,:url => {:action => "reject", :id => message, 
-							:controller => "messages" } do |f| %>
-						<%= f.hidden_field :approval_status, value: "rejected" %>
-						<%= f.submit "Reject", class: 'btn btn-yellow' %>
-						<div class="pull-right">
-
-						<a class="btn btn-green" data-dismiss="modal">Cancel
-						</a>
-						</div>
-						<% end %>
-						</p>
-
-						
-						
-						
-						
-						
-						
-						</div>
-						</div>
-						</div>
-						</div>
-
-						<div aria-hidden="true" class="modal modal-va-middle fade" id="reply<%= message.id %>" role="dialog" tabindex="-1">
-						<div class="modal-dialog modal-xs">
-						<div class="modal-content">
-						<div class="modal-inner">
-						<p class="content">Reply leave message</p>
-						</div>
-
-						<div class="modal-footer">
-						<p class="text-right">
-						
-						<%= form_for message, :url => {:action => "reply", :id => message, :controller => "messages"} do |f| %>
-						 
-                        <%= f.text_field :admin_respond,class: 'form-control', id: 'admin_respond', placeholder: "your reply please", style: 'color: white;' %>
-                        </p>
-						<%= f.hidden_field :approval_status, value: "recheck" %>
-						<%= f.submit "Send", class: 'btn btn-green' %>
-						<div class="pull-right">
-						<a class="btn btn-yellow" data-dismiss="modal">Cancel
-						</a>
-						</div>
-						<% end %>
-						</p>
-						</div>
-						</div>
-						</div>
-						</div>
+				<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
 		
-					 
+								
+												
+						<div aria-hidden="true" class="modal modal-va-middle fade modal-va-middle fade" id="reject<%= message.id %>" 	role="dialog" tabindex="-1" style="padding-right: 15px;">
+				<%= form_for message, :url => {:action => "reject", :id => message, :controller => "messages"} do |f| %>
+				<%= f.hidden_field :approval_status, value: "rejected" %>
+			<div class="modal-dialog modal-xs">
+				<div class="modal-content">
+					<div class="modal-inner">
+						<p class="h5 margin-top-sm text-black-hint">Reject this leave message?</p>
+					</div>
+				<div class="modal-footer">
+						<p class="text-right"><%= f.submit "Reject", class: 'btn btn-flat' %>
+						<a class ="btn btn-flat btn-brand-accent waves-attach waves-effect" data-dismiss="modal">cancel</a>
+						</p>
+				<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+					
+
+						<div aria-hidden="true" class="modal modal-va-middle fade modal-va-middle fade" id="reply<%= message.id %>" 	role="dialog" tabindex="-1" style="padding-right: 15px;">
+										<%= form_for message, :url => {:action => "reply", :id => message, :controller => "messages"} do |f| %>
+
+										<%= f.hidden_field :approval_status, value: "recheck" %>
+									<div class="modal-dialog modal-xs">
+										<div class="modal-content">
+											<div class="modal-inner">
+												<p class="h5 margin-top-sm text-black-hint">Approve this leave message?</p>
+												<%= f.text_field :admin_respond,class: 'form-control-green', id: 'admin_respond', placeholder: "your reply please", style: 'color: white;' %>
+											</div>
+										<div class="modal-footer">
+												<p class="text-right"><%= f.submit "Approve", class: 'btn btn-flat' %>
+												<a class ="btn btn-flat btn-brand-accent waves-attach waves-effect" data-dismiss="modal">cancel</a>
+												</p>
+										<% end %>
+										</div>
+									</div>
+								</div>
+							</div>
+					
+
+
+
 				</td>
 				</tr>
 			<% end %>
